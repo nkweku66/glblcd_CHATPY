@@ -4,17 +4,20 @@ import paho.mqtt.client as mqtt
 import json
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+
+#Creating topics from user registrations
 
 
 
-#Routign to home screen
+#Routing to home screen
 @app.route('/')
 def login():
      return render_template('login.html')
 
+
+
 #Function to validate user logins
-@app.route('/authenticate', methods=['POST', 'GET'])
+@app.route('/authenticate', methods=['POST'])
 def authenticate():
     username = request.form.get('username')
     password = request.form.get('password')
@@ -26,9 +29,9 @@ def authenticate():
     authenticated_user = next((user for user in users if user["username"] == username and user["password"] == password), None)
 
     if authenticated_user:
-        return render_template("chat.html", name=username)
+        return render_template("chat.html")
     else:
-        return render_template("login.html")
+        return "error"
 
 
 # Function to get and add Sign up details to database
@@ -47,6 +50,10 @@ def register():
                 newUser["password"] = password
 
                 users.append(newUser)
+
+                """Add username to created topics"""
+                topic.append(newUser["username"])
+                
           with open("./static/json/data.json", 'w') as json_file:
                     json.dump(users, json_file, indent=4)
           return redirect('/')
@@ -54,11 +61,8 @@ def register():
            return render_template("signup.html")
 
 
-@socketio.on('message')
-def handle_message(data):
-    message = data['message']
-    username = data['username']
+
 
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000)
+    app.run(debug=True, host="0.0.0.0")
