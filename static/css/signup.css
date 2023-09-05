@@ -20,12 +20,12 @@ p, span {
   line-height: 0;
 }
 
-.loginCont{
+.signupCont{
   background-color: #fff;
   border-radius: 10px;
   border-color: rgb(173, 4, 4);
   width: 450px;
-  height: 500px;
+  height: 520px;
   flex-direction: column;
   display: flex;
   justify-content: space-between;
@@ -33,59 +33,81 @@ p, span {
   position: relative;
   top: 125px;
   margin: 0 auto;
-
-  .logtext{
-    font-family: 'Playfair Display', serif;
-    text-align: center;
-    margin-top: 50px;
-    font-size: 30px;
-
-    .textAlg{
-      margin-top: 40px;
-    }
+   
   }
 
+  .signtext{
+    line-height: 50px;
+  }
+
+.signtext h4{
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 25px;
+}
+  .textAlg {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
   
-  .loginDetail{
+  .signupDetail{
     display: flex;
     flex-direction: column;
     position: relative;
-    top: -71px;
-
+    top: -50px;
     
   }
 
 
-  .loginDetail input[type="text"], .loginDetail button {
+  .signupDetail input[type="text"], .signupDetail button {
     border: 1px solid gray;
     border-radius: 10px;
     width: 300px;
     padding: 15px;
-    height: 50px;
+    height: 45px;
+    font-size: 1rem;
+    font-family: 'Manjari', sans-serif;
+    margin: 15px;
+  } 
+  
+  .signupDetail input[type="password"]{
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 300px;
+    padding: 15px;
+    height: 45px;
     font-size: 1rem;
     font-family: 'Manjari', sans-serif;
     margin: 15px;
   }
-  
-  .loginDetail input[type="password"]{
-    border: 1px solid gray;
-    border-radius: 10px;
-    width: 300px;
-    padding: 15px;
-    height: 50px;
-    font-size: 1rem;
-    font-family: 'Manjari', sans-serif;
-    margin: 0 auto;
-  }
 
 
-  .loginDetail button {
+  .signupDetail button {
     background-color: #eb657f;
     border: none;
+    height: 50px;
     outline: none;
     color: #fff;
     cursor: pointer;
 
+}
+
+.signupDetail button:hover{
+  background-color: #ca5a71;
+}
+
+
+.signupDetail span{
+  font-size: 15px;
+  text-align: center;
+}
+
+.signupDetail span a{
+  color:#eb657f;
+  cursor: pointer;
 }
 
 input:focus {
@@ -101,5 +123,4 @@ input:focus {
      
     
 
-  
-}
+

@@ -55,6 +55,17 @@ p, span {
     
   }
 
+  .loginDetail span{
+    line-height: 10px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .loginDetail span a{
+    color:#eb657f;
+    cursor: pointer;
+  }
+
 
   .loginDetail input[type="text"], .loginDetail button {
     border: 1px solid gray;
@@ -76,6 +87,11 @@ p, span {
     cursor: pointer;
 
 }
+
+.loginDetail button:hover{
+  background-color: #ca5a71;
+}
+
 
 input:focus {
     border-color: #eb657f ;
