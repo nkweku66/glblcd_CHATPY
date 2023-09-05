@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CHATPY</title>
-    <link rel="stylesheet" href="../static/css/signup.css" />
+    <link rel="stylesheet" href="/static/css/signup.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manjari&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <meta name="viewport" content="width=.loginC, initial-scale=1.0">
+    <title>Document</title>
   </head>
-  <body class="login">
-    <div class="loginCont">
-      <div class="logtext">
-        <h4>ChatPy Login</h4>
-        <div class="textAlg">
-          <p>Welcome to ChatPy sign up page.</p>
-          <span>Lets login</span>
+  <body class="signup">
+    <form action="POST">
+      <div class="signupCont">
+        <div class="signtext">
+          <h4>ChatPy Sign Up</h4>
+          <div class="textAlg">
+            <p>Welcome to ChatPy sign up page.</p>
+            <span>create an account</span>
+          </div>
+        </div>
+        <div class="signupDetail">
+          <input type="text" value="" placeholder="Username">
+          <input type="password" placeholder="password" class="pass">
+          <input type="password" placeholder="confirm password" class="pass">
+          <button type="submit" class="btn">Sign Up</button>
+          <span>Have an account already? <a href="../templates/login.html">Sign In</a> </span>
         </div>
       </div>
-      <div class="loginDetail">
-        <input type="text" value="" placeholder="Username">
-        <input type="password" name="" id="" placeholder="New password">
-        <input type="text" placeholder="Confirm password">
-        <button type="button">Sign Up</button>
-      </div>
-    </div>
+    </form>
   </body>
 </html>
