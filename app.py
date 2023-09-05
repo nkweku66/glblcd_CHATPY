@@ -51,8 +51,7 @@ def register():
 
                 users.append(newUser)
 
-                """Add username to created topics"""
-                topic.append(newUser["username"])
+              
                 
           with open("./static/json/data.json", 'w') as json_file:
                     json.dump(users, json_file, indent=4)
