@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="/static/css/signup.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manjari&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=.loginC, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/signup.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manjari&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=.loginC, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body class="signup">
-    <form action="POST">
+    <form action="/register" method="post">
       <div class="signupCont">
         <div class="signtext">
           <h4>ChatPy Sign Up</h4>
@@ -20,11 +23,14 @@
           </div>
         </div>
         <div class="signupDetail">
-          <input type="text" value="" placeholder="Username">
-          <input type="password" placeholder="password" class="pass">
-          <input type="password" placeholder="confirm password" class="pass">
+          <input type="text" placeholder="Username" name="username"/>
+          <input type="password" placeholder="password" class="pass"  name="password"/>
+          <input type="password" placeholder="confirm password" class="pass" name="confirmPassword"/>
           <button type="submit" class="btn">Sign Up</button>
-          <span>Have an account already? <a href="../templates/login.html">Sign In</a> </span>
+          <span
+            >Have an account already?
+            <a href="/">Sign In</a>
+          </span>
         </div>
       </div>
     </form>

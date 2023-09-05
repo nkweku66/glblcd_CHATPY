@@ -9,12 +9,15 @@ app = Flask(__name__)
 
 
 
-#Routing to home screen
+#Routing to signIn screen
 @app.route('/')
 def login():
      return render_template('login.html')
 
-
+#Routing to signUp screen
+@app.route('/signup')
+def signup():
+     return render_template('signup.html')
 
 #Function to validate user logins
 @app.route('/authenticate', methods=['POST'])
@@ -57,7 +60,7 @@ def register():
                     json.dump(users, json_file, indent=4)
           return redirect('/')
      else:
-           return render_template("signup.html")
+           return "error"
 
 
 
