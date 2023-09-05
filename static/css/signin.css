@@ -45,12 +45,16 @@ p, span {
     }
   }
 
+  
   .loginDetail{
     display: flex;
     flex-direction: column;
     position: relative;
     top: -71px;
+
+    
   }
+
 
   .loginDetail input[type="text"], .loginDetail button {
     border: 1px solid gray;
@@ -61,14 +65,24 @@ p, span {
     font-size: 1rem;
     font-family: 'Manjari', sans-serif;
     margin: 15px;
+  }
+
+
+  .loginDetail button {
+    background-color: #eb657f;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+
 }
 
-.loginDetail button {
-  background-color: #eb657f;
-  border: none;
-  outline: none;
-  color: #fff;
-}
+input:focus {
+    border-color: #eb657f ;
+  }
+  
+
+
   
   
   
