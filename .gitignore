@@ -195,3 +195,7 @@ pyrightconfig.json
 login-test.html
 signin-test.css
 
+# test files
+test.py
+test2.py
+try.py
