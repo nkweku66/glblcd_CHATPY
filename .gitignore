@@ -190,3 +190,8 @@ pyrightconfig.json
 .history
 .ionide
 
+
+# Ignore HTML and CSS test files
+login-test.html
+signin-test.css
+

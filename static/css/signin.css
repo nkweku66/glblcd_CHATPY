@@ -74,6 +74,10 @@ form img{
       font-family: "Manjari", sans-serif;
       margin: 15px;
     }
+
+    #username:active{
+      border-color: crimson;
+    }
     
     button{
       background: #ff725e;

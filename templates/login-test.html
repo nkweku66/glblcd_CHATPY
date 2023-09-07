@@ -1,35 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="/static/css/signin-test.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manjari&family=Playfair+Display:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
-  <body>
-      <form method="post" action="/authenticate">
-        <div class="loginCont">
-          <div class="logtext">
-            <h4>ChatPy Login</h4>
-            <div class="textAlg">
-              <p>Welcome to ChatPy sign in page.</p>
-              <span>Lets login</span>
-            </div>
-          </div>
-          <div class="loginDetail">
-            <input type="text" value="" placeholder="Username" name="username" />
-            <input type="password" name="" placeholder="password" id="">
-            <button type="button" id="button">Sign In</button>
-            <span>Dont have an account? <a href="/signup">Sign Up</a></span>
-          </div>
+<html>
+    <head>
+        <title>Chat App</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            #chat-container {
+                max-width: 400px;
+                margin: 0 auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                background-color: #f7f7f7;
+            }
+
+            #chat-messages {
+                max-height: 300px;
+                overflow-y: scroll;
+                border: 1px solid #ddd;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #fff;
+            }
+
+            .message {
+                margin-bottom: 10px;
+                padding: 5px 10px;
+                border-radius: 5px;
+                background-color: #007BFF;
+                color: #fff;
+            }
+
+            input[type="text"] {
+                width: 80%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            button {
+                padding: 8px 15px;
+                background-color: #007BFF;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="chat-container">
+            <div id="chat-messages"></div>
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
         </div>
-        <img src="/static/images/side.png" alt="" srcset="">
-      </form>
-  </body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.js"></script>
+        <script>
+        // MQTT Broker settings
+        var MQTT_BROKER_HOST = "localhost";
+        var MQTT_BROKER_PORT = 1883;
+        
+        // MQTT client setup
+        var mqttClient = new Paho.MQTT.Client(MQTT_BROKER_HOST, MQTT_BROKER_PORT, "web-client-" + new Date().getTime());
+    
+        // Callback when connected to MQTT broker
+        mqttClient.onConnectionLost = function (responseObject) {
+            if (responseObject.errorCode !== 0) {
+                console.log("Connection lost: " + responseObject.errorMessage);
+            }
+        };
+            
+        // Callback when a message is received
+        mqttClient.onMessageArrived = function (message) {
+            var messageDiv = document.createElement("div");
+            messageDiv.innerHTML = message.payloadString;
+            document.getElementById("chat-messages").appendChild(messageDiv);
+        };
+    
+        // Connect to the MQTT broker
+        mqttClient.connect({
+            onSuccess: function () {
+                console.log("Connected to MQTT broker");
+                // Subscribe to the user's unique topic
+                var userTopic = "chat/unique-user-topic"; // Replace with the actual user's topic
+                mqttClient.subscribe(userTopic);
+            },
+            onFailure: function (message) {
+                console.log("Connection failed: " + message.errorMessage);
+            }
+        });
+        
+        // Function to send a message
+        function sendMessage() {
+            var messageInput = document.getElementById("message-input");
+            var messageText = messageInput.value;
+            var userTopic = "chat/unique-user-topic"; // Replace with the actual user's topic
+    
+            if (messageText.trim() !== "") {
+                var message = new Paho.MQTT.Message(messageText);
+                message.destinationName = userTopic;
+                mqttClient.send(message);
+                messageInput.value = "";
+            }
+        }
+        </script>
+    </body>
 </html>
