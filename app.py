@@ -19,6 +19,8 @@ MQTT_CHAT_TOPIC = "glblcd"
 
 
 # Function to set up MQTT
+
+
 def setup_mqtt():
     global mqtt_client
     if not mqtt_client.is_connected():
@@ -37,11 +39,6 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print(f"Received message on topic {msg.topic}: {msg.payload.decode()}")
     message = msg.payload.decode()
-    
-
-  
-    
-    
 
 
 # Set MQTT callback functions
@@ -139,7 +136,6 @@ def update_content():
     if message:
         # setup_mqtt()
         mqtt_client.publish(MQTT_CHAT_TOPIC, message)
-       
 
     return "", 204
 
@@ -152,10 +148,12 @@ def disconnect():
 
     return redirect("/")
 
+
 @socketio.on("message")
 def handle_message(message):
     if message != "User connected!":
         send(message)
+
 
 if __name__ == "__main__":
     socketio.run(app, host="localhost")
