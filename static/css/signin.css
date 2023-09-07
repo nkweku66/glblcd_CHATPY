@@ -65,19 +65,18 @@ span {
     margin: 15px;
   }
 
-  .loginDetail span{
+  .loginDetail span {
     line-height: 10px;
     font-size: 15px;
     text-align: center;
   }
 
-  .loginDetail span a{
-    color:#eb657f;
+  .loginDetail span a {
+    color: #eb657f;
     cursor: pointer;
   }
 
-
-  .loginDetail input[type="text"]{
+  .loginDetail input[type="text"] {
     border: 1px solid gray;
     border-radius: 10px;
     width: 300px;
@@ -88,7 +87,7 @@ span {
     margin: 15px;
   }
 
-  .loginDetail input[type="password"]{
+  .loginDetail input[type="password"] {
     border: 1px solid gray;
     border-radius: 10px;
     width: 300px;
@@ -105,13 +104,11 @@ span {
     outline: none;
     color: #fff;
     cursor: pointer;
+  }
 
-}
-
-.loginDetail button:hover{
-  background-color: #ca5a71;
-}
-
+  .loginDetail button:hover {
+    background-color: #ca5a71;
+  }
 
   input:focus {
     border-color: #eb657f;
