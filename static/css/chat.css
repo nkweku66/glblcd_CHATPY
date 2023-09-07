@@ -1,0 +1,205 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.home {
+  background-color: #fff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 65%;
+  height: 80%;
+  display: flex;
+  overflow: hidden;
+}
+
+.chatContainer {
+  display: grid;
+  background-color: #2d2e57;
+  grid-template-columns: 1fr 3fr;
+}
+
+.chatCards {
+  display: block;
+  background-color: #33345f;
+
+}
+
+.chatProfile {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  gap: 0px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  height: 70px;
+  width: 300px;
+  margin-left: 20px;
+}
+
+.chatProfile img {
+  width: 40px;
+  height: 40px;
+  padding: 0 15px;
+}
+
+.chatProfile p {
+  line-height: 17px;
+  color: greenyellow;
+}
+
+.form {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+  margin: 0 8px;
+  padding: 2px 10px;
+}
+
+.chatCards input {
+  border: none;
+  border-radius: 10px;
+  width: 220px;
+  padding: 0 20px;
+  height: 40px;
+  background-color: #3b3b65;
+  color: gray;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.chatCards input:focus {
+  outline: none;
+}
+
+.resultCards {
+  display: block;
+  margin-top: 20px;
+  padding: 3px 6px;
+}
+
+.resultCards div {
+  display: flex;
+  padding: 6px 25px;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.resultCards div img {
+  width: 50px;
+  height: 50px;
+}
+
+.logout{
+    margin-left: 18px;
+  
+    position: absolute;
+    top: 78%;
+    left: 19%;
+    width: 240px;
+    background-color: #eb657f;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
+.chatArea {
+  grid-column-start: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 606px;
+  max-width: 670px
+}
+
+.chatArea form {
+  display: flex;
+}
+
+.chatArea input {
+  font-family: "Poppins", sans-serif;
+  width: 80%;
+  padding: 3%;
+  border: none;
+  color: azure;
+  background-color: #3b3b65;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.chatArea input:focus {
+  outline: none;
+  color: azures;
+}
+
+.chatArea button {
+  vertical-align: middle;
+  top: 78%;
+  left: 74%;
+
+  position: absolute;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #eb657f;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.chatArea .chatUser {
+  margin: 15px 30px;
+  padding: 10px 20px;
+  font-size: 22px;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  color: azure;
+  border-bottom: 1px solid gray;
+}
+
+.chatMessaging {
+  display: grid;
+  height: 80%;
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  overflow-y: scroll;
+  /* border: 2px solid gray; */
+}
+
+.chatMessaging #Outmessages {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  color: azure;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.chatMessaging::-webkit-scrollbar {
+    color: azure;
+    width: 2px;
+    height: 2em
+  }
+
+/* .chatMessaging #Inmessages {
+  background-color: #fff;
+} */
