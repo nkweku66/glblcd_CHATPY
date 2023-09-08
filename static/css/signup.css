@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6{
 h1, h2, h3, h4, h5, h6{
   font-family: 'Playfair Display';
 }
+}
 
 form {
   /* border: 1px solid red; */
@@ -156,10 +157,7 @@ form img{
     font-size: 16px;
     text-align-last: center;
   }
-  .signupDetail span{
-    font-size: 16px;
-    text-align-last: center;
-  }
+
 
   .signupDetail span a{
     cursor: pointer;
