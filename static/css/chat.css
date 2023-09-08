@@ -23,12 +23,12 @@ body {
   display: grid;
   background-color: #2d2e57;
   grid-template-columns: 1fr 3fr;
+  column-gap: 8px;
 }
 
 .chatCards {
   display: block;
   background-color: #33345f;
-
 }
 
 .chatProfile {
@@ -85,7 +85,7 @@ body {
   padding: 3px 6px;
 }
 
-.resultCards div {
+.resultCards #container {
   display: flex;
   padding: 6px 25px;
   align-items: center;
@@ -96,25 +96,35 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.resultCards .Avatar {
+  margin-right: 4px;
+  margin-top: 5px;
+}
+
+.resultCards .user-info {
+  display: flex;
+  flex-direction: column;
+}
+
 .resultCards div img {
   width: 50px;
   height: 50px;
 }
 
-.logout{
-    margin-left: 18px;
-  
-    position: absolute;
-    top: 78%;
-    left: 19%;
-    width: 240px;
-    background-color: #eb657f;
-    border: none;
-    padding: 10px 20px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: "Poppins", sans-serif;
+.logout {
+  margin-left: 18px;
+
+  position: absolute;
+  top: 78%;
+  left: 19%;
+  width: 240px;
+  background-color: #eb657f;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
 }
 
 .chatArea {
@@ -123,7 +133,20 @@ body {
   flex-direction: column;
   justify-content: space-between;
   max-height: 606px;
-  max-width: 670px
+  max-width: 670px;
+}
+
+.even {
+  position: relative;
+
+  text-align: right; /* Align even messages to the right */
+}
+
+.odd {
+  position: relative;
+  left: 30%;
+  border: 1px solid red;
+  text-align: left; /* Align odd messages to the left */
 }
 
 .chatArea form {
@@ -185,20 +208,32 @@ body {
 
 .chatMessaging #Outmessages {
   font-family: "Poppins", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 12px;
   color: azure;
   position: relative;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: end; */
 }
 
+/* #Outmessages p:nth-of-type(even) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid red;
+  margin-left: 20px;  Add a left margin to keep messages within the chat area 
+  max-width: calc(100% - 20px);
+} */
+
+
+
+
 .chatMessaging::-webkit-scrollbar {
-    color: azure;
-    width: 2px;
-    height: 2em
-  }
+  color: azure;
+  width: 2px;
+  height: 2em;
+}
 
 /* .chatMessaging #Inmessages {
   background-color: #fff;

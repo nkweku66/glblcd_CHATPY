@@ -26,7 +26,7 @@
             <form class="form" id="search-form" method="post" action="/search">
               <input
                 type="text"
-                placeholder="Type glblcd to connect..."
+                placeholder="Type glblcd to subscribe..."
                 name="query"
                 id="query"
               />
@@ -35,9 +35,13 @@
             <div class="resultCards">
               {% for result in results %}
               <div id="container">
-                <img src="/static/images/user .png" />
-                {{ result }} <br />
-                You've subscribed to {{result}}
+                <div class="Avatar">
+                  <img src="/static/images/user .png" />
+                </div>
+                <div class="user-info">
+                  <span id="currentUser">{{ user }}</span>
+                  <span>You've subscribed to {{ result }}</span>
+                </div>
               </div>
               {% endfor %}
             </div>
@@ -62,7 +66,7 @@
               <input
                 id="message"
                 type="text"
-                name="Message"
+                name="message"
                 placeholder="Enter your message..."
               />
               <button type="submit" id="sendBtn">Send</button>
@@ -73,32 +77,6 @@
     </div>
 
     <script type="text/javascript">
-      // $(document).ready(function () {
-      //   $("#btn").click(function (e) {
-      //     var message = $('input[name="Message"]').val();
-      //     $('input[name="Message"]').val("");
-
-      //     $.ajax({
-      //       type: "POST",
-      //       url: "/update_content",
-      //       data: { message: message },
-      //       success: function (data) {
-      //         // var outputElement = document.createElement("p");
-      //         // outputElement.id = "output";
-      //         // outputElement.textContent = data.new_content;
-      //         // outputElement.style.backgroundColor = "#3b3b65";
-      //         // outputElement.style.width = "max-content";
-      //         // outputElement.style.padding = "8px";
-      //         // outputElement.style.borderRadius = "10px 10px 0px 10px";
-      //         // document.getElementById("Outmessages").appendChild(outputElement);
-      //       },
-      //       error: function (error) {
-      //         console.error("Error:", error);
-      //       },
-      //     });
-      //   });
-      // });
-
       $(document).ready(function () {
         var socket = io.connect("http://localhost:5000");
 
@@ -109,9 +87,12 @@
         socket.on("message", function (data) {
           var newMessage = $("<p>").text(data);
 
-          // Add CSS styles to the <p> element
+          var allowedColors = ["orange",  "#3b3b65"];
+          var randomColor =
+            allowedColors[Math.floor(Math.random() * allowedColors.length)];
+
           newMessage.css({
-            backgroundColor: "#3b3b65",
+            backgroundColor: randomColor,
             width: "max-content",
             padding: "8px",
             borderRadius: "10px 10px 0px 10px",
@@ -121,7 +102,8 @@
         });
 
         $("#sendBtn").on("click", function () {
-          socket.send($("#message").val());
+          var userText = document.getElementById("currentUser").textContent;
+          socket.send("@" + userText + ": " + $("#message").val());
           $("#message").val("");
         });
       });
