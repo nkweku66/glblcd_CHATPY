@@ -76,8 +76,8 @@ def search():
 
     else:
         print("No result")
-    global user
-    return render_template("chat.html", results=results, user=user)
+       
+    return render_template("chat.html", results=results, user=session["user"])
 
 
 # Function to validate user logins
@@ -99,9 +99,8 @@ def authenticate():
     )
 
     if authenticated_user:
-        global user
-        user = username
-        return render_template("chat.html", user=user)
+        session["user"] = username 
+        return render_template("chat.html", user=username)
     else:
         return "error"
 
