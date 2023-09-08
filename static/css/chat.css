@@ -118,7 +118,7 @@ body {
   top: 78%;
   left: 19%;
   width: 240px;
-  background-color: #eb657f;
+  background-color: #ff725e;
   border: none;
   padding: 10px 20px;
   color: #fff;
@@ -134,19 +134,6 @@ body {
   justify-content: space-between;
   max-height: 606px;
   max-width: 670px;
-}
-
-.even {
-  position: relative;
-
-  text-align: right; /* Align even messages to the right */
-}
-
-.odd {
-  position: relative;
-  left: 30%;
-  border: 1px solid red;
-  text-align: left; /* Align odd messages to the left */
 }
 
 .chatArea form {
@@ -179,7 +166,7 @@ body {
   border: none;
   border-radius: 4px;
   color: #fff;
-  background-color: #eb657f;
+  background-color: #ff725e;
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
@@ -225,9 +212,6 @@ body {
   margin-left: 20px;  Add a left margin to keep messages within the chat area 
   max-width: calc(100% - 20px);
 } */
-
-
-
 
 .chatMessaging::-webkit-scrollbar {
   color: azure;
