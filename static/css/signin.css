@@ -2,15 +2,13 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  padding: 0;
-  margin: 0;
   text-decoration: none;
 }
 
 
-/* body{
+body{
   background-color: beige;
-} */
+}
 
 p, span{
   font-family: 'Manjari';
@@ -21,14 +19,8 @@ p, span{
 
 h1, h2, h3, h4, h5, h6{
   font-family: 'Playfair Display';
-
-h1, h2, h3, h4, h5, h6{
-  font-family: 'Playfair Display';
 }
 
-form {
-  /* border: 1px solid red; */
-  width: 845px;
 form {
   /* border: 1px solid red; */
   width: 845px;
@@ -51,29 +43,7 @@ form img{
   /* border: 1px solid blue; */
   margin: 0 auto;
 }
-  position:relative;
-  top: 65px;
-  border-radius: 15px;
-  box-shadow: 0px -1px 50px -9px rgb(153 153 153 / 75%);
-}
 
-form img{
-  width: 450px;
-  border-radius: 0 15px 15px 0;
-}
-
-.loginCont{
-  /* border: 1px solid blue; */
-  margin: 0 auto;
-}
-
-.logtext{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 .logtext{
   display: flex;
   flex-direction: column;
@@ -85,22 +55,11 @@ form img{
 .logtext .textAlg{
   margin: 50px 0 20px 0;
 }
-.logtext .textAlg{
-  margin: 50px 0 20px 0;
-}
 
 .logtext h4{
   font-size: 30px;
 }
-.logtext h4{
-  font-size: 30px;
-}
 
-.loginDetail{
-  display: flex;
-  flex-direction: column;
-  /* border: 1px solid red; */
-}
 .loginDetail{
   display: flex;
   flex-direction: column;
@@ -117,28 +76,7 @@ form img{
       font-family: "Manjari", sans-serif;
       margin: 15px;
     }
-.loginDetail input[type="text"], .loginDetail input[type="password"], button{
-      border: 1px solid gray;
-      border-radius: 10px;
-      width: 300px;
-      padding: 15px;
-      height: 50px;
-      font-size: 1rem;
-      font-family: "Manjari", sans-serif;
-      margin: 15px;
-    }
 
-    #username:active{
-      border-color: crimson;
-    }
-    
-    button{
-      background: #ff725e;
-      border: none;
-      outline: none;
-      color: #fff;
-      cursor: pointer;
-  
     #username:active{
       border-color: crimson;
     }
@@ -151,9 +89,6 @@ form img{
       cursor: pointer;
   
   }
-  
-  .loginDetail button:hover{
-    background-color: #fc8c7d;
   
   .loginDetail button:hover{
     background-color: #fc8c7d;

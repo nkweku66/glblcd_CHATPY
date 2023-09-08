@@ -3,47 +3,37 @@
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="/static/css/signin.css">
+    <link rel="stylesheet" href="/static/css/signin.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Manjari&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
     />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
-      <form method="post" action="/authenticate">
-        <div class="loginCont">
-          <div class="logtext">
-            <h4>ChatPy Login</h4>
-            <div class="textAlg">
-              <p>Welcome to ChatPy sign in page.</p>
-              <span>Lets login</span>
-            </div>
-          </div>
-          <div class="loginDetail">
-            <input type="text" value="" placeholder="Username" name="username" id="username" required />
-            <input type="password" name="password" placeholder="password" id="">
-            <button type="button" id="button">Sign In</button>
-            <span>Dont have an account? <a href="/signup">Sign Up</a></span>
+    <form method="post" action="/authenticate">
+      <div class="loginCont">
+        <div class="logtext">
+          <h4>ChatPy Login</h4>
+          <div class="textAlg">
+            <p>Welcome to ChatPy sign in page.</p>
+            <span>Lets login</span>
           </div>
         </div>
+
         <div class="loginDetail">
           <input type="text" value="" placeholder="username" name="username" />
-          <input
-            type="password"
-            placeholder="password"
-            name="password"
-          />
+          <input type="password" placeholder="password" name="password" />
           <button type="submit">Sign In</button>
           <span
-          >Dont have an account?
-          <a href="/signup">Sign Up</a>
-        </span>
+            >Dont have an account?
+            <a href="/signup">Sign Up</a>
+          </span>
         </div>
       </div>
-      <img src="./static/images/side.png">
+      <img src="./static/images/side.png" />
     </form>
   </body>
 </html>
