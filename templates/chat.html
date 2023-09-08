@@ -108,7 +108,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../static/css/chat.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
   </head>
   <body>
     <div class="home">
@@ -117,37 +118,37 @@
           <div class="chatCards">
             <div class="chatProfile">
               <img src="../static/images/account.png" alt="User Avatar" />
-              <p>online</p>
+              <p>connected</p>
             </div>
 
             <form class="form" id="search-form" method="post" action="/search">
               <input
                 type="text"
-                placeholder="Search users..."
+                placeholder="Type glblcd to connect..."
                 name="query"
                 id="query"
               />
             </form>
 
             <div class="resultCards">
-              <!-- {% for result in results %} -->
+              {% for result in results %}
               <div id="container">
                 <img src="/static/images/user .png" />
-                <!-- {{ result }} <br /> -->
-                You've subscribed to
+                {{ result }} <br />
+                You've subscribed to {{result}}
               </div>
-              <!-- {% endfor %} -->
+              {% endfor %}
             </div>
 
-            <a href="/">
-              <button type="submit" class="logout">Logout</button></a
+            <a href="/disconnect">
+              <button type="submit" class="logout">Disconnect</button></a
             >
           </div>
 
           <div class="chatArea">
-            <!-- {% for result in results %} -->
-            <div class="chatUser"><div id="container"></div></div>
-            <!-- {%endfor%} -->
+            {% for result in results %}
+            <div class="chatUser" id="user">{{result}}</div>
+            {%endfor%}
 
             <div class="chatMessaging">
               <div id="Outmessages"></div>
@@ -155,73 +156,71 @@
               <!-- <div id="Inmessages"></div> -->
             </div>
 
-            <form id="form">
+            <form id="send_message" action="/update_content" method="post">
               <input
-                id="messageInput"
+                id="message"
                 type="text"
-                name="message"
+                name="Message"
                 placeholder="Enter your message..."
               />
-              <button type="submit" id="btn">Send</button>
+              <button type="submit" id="sendBtn">Send</button>
             </form>
           </div>
         </div>
       </div>
     </div>
 
-    <script>
+    <script type="text/javascript">
+      // $(document).ready(function () {
+      //   $("#btn").click(function (e) {
+      //     var message = $('input[name="Message"]').val();
+      //     $('input[name="Message"]').val("");
+
+      //     $.ajax({
+      //       type: "POST",
+      //       url: "/update_content",
+      //       data: { message: message },
+      //       success: function (data) {
+      //         // var outputElement = document.createElement("p");
+      //         // outputElement.id = "output";
+      //         // outputElement.textContent = data.new_content;
+      //         // outputElement.style.backgroundColor = "#3b3b65";
+      //         // outputElement.style.width = "max-content";
+      //         // outputElement.style.padding = "8px";
+      //         // outputElement.style.borderRadius = "10px 10px 0px 10px";
+      //         // document.getElementById("Outmessages").appendChild(outputElement);
+      //       },
+      //       error: function (error) {
+      //         console.error("Error:", error);
+      //       },
+      //     });
+      //   });
+      // });
+
       $(document).ready(function () {
-        $("#btn").click(function (e) {
-          var message = $('input[name="message"]').val();
-          $('input[name="message"]').val("");
-          e.preventDefault();
-          $.ajax({
-            type: "POST",
-            url: "/update_content",
-            data: { message: message },
-            success: function (data) {
-              var outputElement = document.createElement("p");
-              outputElement.id = "output";
-              outputElement.textContent = data.new_content;
+        var socket = io.connect("http://localhost:5000");
 
-              outputElement.style.backgroundColor = "#3b3b65";
-              outputElement.style.width = "max-content";
-              outputElement.style.padding = "8px";
-              outputElement.style.borderRadius = "10px 10px 0px 10px";
-
-              document.getElementById("Outmessages").appendChild(outputElement);
-            },
-            error: function (error) {
-              console.error("Error:", error);
-            },
-          });
+        socket.on("connect", function () {
+          socket.emit("test", "User connected!");
         });
-      });
 
-      $(document).ready(function () {
-        $("form#search-form").submit(function (e) {
-           e.preventDefault(); // Prevent the default form submission behavior
+        socket.on("message", function (data) {
+          var newMessage = $("<p>").text(data);
 
-          var message = $("input[name='query']").val();
-          $("input[name='query']").val("");
-
-          $.ajax({
-            type: "POST",
-            url: "/search",
-            data: { message: message },
-            success: function (data) {
-              var outputElement = document.createElement("p");
-              outputElement.id = "data";
-              outputElement.textContent = data.results;
-
-                console.log(data.results)
-
-              document.getElementById("container").appendChild(outputElement);
-            },
-            error: function (error) {
-              console.error("Error:", error);
-            },
+          // Add CSS styles to the <p> element
+          newMessage.css({
+            backgroundColor: "#3b3b65",
+            width: "max-content",
+            padding: "8px",
+            borderRadius: "10px 10px 0px 10px",
           });
+
+          $("#Outmessages").append(newMessage);
+        });
+
+        $("#sendBtn").on("click", function () {
+          socket.send($("#message").val());
+          $("#message").val("");
         });
       });
     </script>

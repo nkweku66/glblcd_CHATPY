@@ -95,10 +95,13 @@ form img{
   .loginDetail span{
     font-size: 16px;
     text-align-last: center;
-  }
+}
+
 
   .loginDetail span a{
     cursor: pointer;
     color: #fc8c7d;
     padding-left: 3px;
+
   }
+
