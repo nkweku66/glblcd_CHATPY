@@ -78,9 +78,7 @@
 
     <script type="text/javascript">
       $(document).ready(function () {
-        var socket = io.connect(
-          "http://" + document.domain + ":" + location.port
-        );
+        var socket = io.connect();
 
         socket.on("connect", function () {
           socket.emit("test", "User connected!");
@@ -94,9 +92,9 @@
             allowedColors[Math.floor(Math.random() * allowedColors.length)];
 
           if (data.includes("@nana")) {
-            randomColor = "red";
+            randomColor = "#4C3B4D";
           } else if (data.includes("@edem")) {
-            randomColor = "blue";
+            randomColor = "#60935d";
           }
 
           newMessage.css({
