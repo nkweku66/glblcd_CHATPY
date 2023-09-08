@@ -1,7 +1,10 @@
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   text-decoration: none;
 }
+
 
 body{
   background-color: beige;
@@ -12,6 +15,7 @@ p, span{
   font-size: 18px;
   /* color: #fff; */
 }
+
 
 h1, h2, h3, h4, h5, h6{
   font-family: 'Playfair Display';
@@ -49,7 +53,7 @@ form img{
 }
 
 .logtext .textAlg{
-  margin: 16px 0 20px 0;
+  margin: 50px 0 20px 0;
 }
 
 .logtext h4{
@@ -90,63 +94,16 @@ form img{
     background-color: #fc8c7d;
   }
 
-  .loginDetail span {
-    line-height: 10px;
-    font-size: 15px;
-    text-align: center;
-  }
-
-  .loginDetail span a {
-    color: #eb657f;
-  }
-
   .loginDetail span{
     font-size: 16px;
     text-align-last: center;
-  }
+}
+
 
   .loginDetail span a{
     cursor: pointer;
     color: #fc8c7d;
     padding-left: 3px;
+
   }
-
-
-  /* .loginDetail input[type="text"] {
-    border: 1px solid gray;
-    border-radius: 10px;
-    width: 300px;
-    padding: 15px;
-    height: 50px;
-    font-size: 1rem;
-    font-family: "Manjari", sans-serif;
-    margin: 15px;
-  } */
-
-  /* .loginDetail input[type="password"] {
-    border: 1px solid gray;
-    border-radius: 10px;
-    width: 300px;
-    padding: 15px;
-    height: 50px;
-    font-size: 1rem;
-    font-family: "Manjari", sans-serif;
-    margin: 15px;
-  } */
-
-  /* .loginDetail button {
-    background-color: #eb657f;
-    border: none;
-    outline: none;
-    color: #fff;
-    cursor: pointer;
-  }
-
-  .loginDetail button:hover {
-    background-color: #ca5a71;
-  }
-
-  input:focus {
-    border-color: #eb657f;
-  } */
 
