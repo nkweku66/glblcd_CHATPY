@@ -100,7 +100,7 @@ def authenticate():
         session["user"] = username
         return render_template("chat.html", user=username)
     else:
-        return "error"
+        return render_template("error.html")
 
 
 # Function to get and add Sign up details to database
@@ -124,7 +124,7 @@ def register():
             json.dump(users, json_file, indent=4)
         return redirect("/")
     else:
-        return "error"
+        return render_template("error.html")
 
 
 @app.route("/update_content", methods=["POST"])
