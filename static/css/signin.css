@@ -5,6 +5,7 @@
   text-decoration: none;
 }
 
+
 body{
   background-color: beige;
 }
@@ -14,6 +15,7 @@ p, span{
   font-size: 18px;
   /* color: #fff; */
 }
+
 
 h1, h2, h3, h4, h5, h6{
   font-family: 'Playfair Display';

@@ -5,8 +5,8 @@ from flask_socketio import SocketIO, send
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "secret!123"
-socketio = SocketIO(app, cors_allowed_origin="*", async_mode='threading')
+app.config["SECRET_KEY"] = "secret!123"
+socketio = SocketIO(app, cors_allowed_origin="*", async_mode="threading")
 
 # MQTT client setup
 mqtt_client = mqtt.Client()
@@ -37,11 +37,6 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print(f"Received message on topic {msg.topic}: {msg.payload.decode()}")
     message = msg.payload.decode()
-    
-
-  
-    
-    
 
 
 # Set MQTT callback functions
@@ -81,8 +76,8 @@ def search():
 
     else:
         print("No result")
-
-    return render_template("chat.html", results=results)
+    global user
+    return render_template("chat.html", results=results, user=user)
 
 
 # Function to validate user logins
@@ -104,7 +99,9 @@ def authenticate():
     )
 
     if authenticated_user:
-        return render_template("chat.html", username=username)
+        global user
+        user = username
+        return render_template("chat.html", user=user)
     else:
         return "error"
 
@@ -139,8 +136,7 @@ def update_content():
     if message:
         # setup_mqtt()
         mqtt_client.publish(MQTT_CHAT_TOPIC, message)
-       
-
+        print(message)
     return "", 204
 
 
@@ -152,10 +148,12 @@ def disconnect():
 
     return redirect("/")
 
+
 @socketio.on("message")
 def handle_message(message):
     if message != "User connected!":
-        send(message)
+        send(message, broadcast=True)
+
 
 if __name__ == "__main__":
     socketio.run(app, host="localhost")
