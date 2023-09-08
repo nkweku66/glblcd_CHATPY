@@ -128,7 +128,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-.venev/ 
+.venev/
 text-env/
 
 # Spyder project settings
@@ -190,6 +190,11 @@ pyrightconfig.json
 # Ignore all local history of files
 .history
 .ionide
+
+
+# Ignore HTML and CSS test files
+sigin-test.html
+signin-test.css
 
 # test files
 test.py

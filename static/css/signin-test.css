@@ -1,0 +1,22 @@
+/* Basic styling for the chat container */
+#chat-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+/* Styling for chat messages */
+.message {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Styling for the input form */
+input[type="text"] {
+  width: 80%;
+  padding: 5px;
+  margin-right: 5px;
+}
