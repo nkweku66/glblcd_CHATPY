@@ -109,7 +109,7 @@
 
         $("#sendBtn").on("click", function () {
           var userText = document.getElementById("currentUser").textContent;
-          socket.send("@" + userText + ": " + $("#message").val());
+          socket.emit('message', "@" + userText + ": " + $("#message").val());
           $("#message").val("");
         });
       });
