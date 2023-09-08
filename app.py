@@ -36,7 +36,7 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
     print(f"Received message on topic {msg.topic}: {msg.payload.decode()}")
-    message = msg.payload.decode()
+   
 
 
 # Set MQTT callback functions
@@ -151,7 +151,7 @@ def disconnect():
 @socketio.on("message")
 def handle_message(message):
     if message != "User connected!":
-        send(message, broadcast=True)
+        socketio.emit("message", message)
 
 
 if __name__ == "__main__":
